@@ -1,1 +1,27 @@
-.dashboard {}
+.dashboard {
+  padding-top: 20px;
+
+  .item {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: $container;
+    margin-bottom: 20px;
+    font-size: 16px;
+
+    header {
+      color: $primary;
+      float: left;
+    }
+
+    >button {
+      font-size: 0.8em;
+      float: right;
+    }
+
+    .main {
+      width: 325px;
+      height: 300px;
+      margin-top: 33px;
+    }
+  }
+}

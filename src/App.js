@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentRoute: 0,
+      currentRoute: 1,
     };
     this.changeRoute = this.changeRoute.bind(this);
   }
