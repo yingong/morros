@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import DashBoard from './DashBoard/DashBoard';
+import Details from './Details/Details';
+import NoteIcon from './assets/账本.png';
+import PieIcon from './assets/饼图.png';
+import Header from './Header/Header.jsx';
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentRoute: 0,
+    };
+    this.changeRoute = this.changeRoute.bind(this);
+  }
+  changeRoute(currentRoute) {
+    this.setState({
+      currentRoute,
+    });
+  }
+  render() {
+    const { currentRoute: route } = this.state;
+    console.log(route);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let dis_mainSection;
+    switch (route) {
+      case 0:
+        dis_mainSection = <Details></Details>;
+        break;
+      default:
+        dis_mainSection = <DashBoard></DashBoard>;
+        break;
+    }
+    return (
+      <div className="App ">
+        <Header></Header>
+        <section className="main">{dis_mainSection}</section>
+        <div className="route-panel">
+          <div className="row">
+            <div className="col">
+              <img src={NoteIcon} alt="" onClick={() => this.changeRoute(0)} />
+            </div>
+            <div className="col">
+              <img src={PieIcon} alt="" onClick={() => this.changeRoute(1)} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

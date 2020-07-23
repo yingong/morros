@@ -1,0 +1,54 @@
+// vars
+$primary:#2D6CDF;
+$secondary-text:#707070;
+$secondary:rgba(70, 195, 219, 88%);
+$bg:#F5F5F5;
+$container:#FFFFFF;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.App {
+  background-color: $bg;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+
+  >.main {
+    // padding-top: 147px;
+    flex: 1;
+    overflow: auto;
+  }
+
+  .route-panel {
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    // position: fixed;
+    bottom: 0;
+    background-color: $primary;
+
+    .col {
+      height: 100%;
+      text-align: center;
+
+      img {
+        width: 20px;
+      }
+    }
+  }
+}
+
+
+@import './Header/Header.scss';
+@import './Details/Details.scss';
+@import './DashBoard/DashBoard.scss';
